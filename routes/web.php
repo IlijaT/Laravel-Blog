@@ -1,5 +1,8 @@
 <?php
 
+use App\Task;
+use Illuminate\Support\Facades\DB;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +14,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/tasks', function () {
+    $tasks = Task::all();
+
+    return view('tasks.index', compact('tasks'));
+});
+
+Route::get('/tasks/{task}', function ($id) {
+    $task = Task::findOrFail($id);
+
+    return view('tasks.show', [
+        'task' => $task
+    ]);
 });
