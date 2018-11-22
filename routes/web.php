@@ -10,3 +10,9 @@ Route::get('/posts/{post}', 'PostsController@show');
 Route::post('/posts', 'PostsController@store');
 
 Route::post('/posts/{post}/comments', 'CommentsController@store');
+
+Route::get('/register', 'Auth\RegistrationController@create');
+Route::post('/register', 'Auth\RegistrationController@store');
+Route::get('/login', 'Auth\SessionController@create');
+Route::post('/login', 'Auth\SessionController@store');
+Route::get('/logout', 'Auth\SessionController@destroy');
