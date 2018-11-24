@@ -18,12 +18,12 @@
 
           <strong>
 
-              {{ $comment->created_at->diffForHumans() }}: &nbsp;
+              {{ $comment->user->name }} - {{ $comment->created_at->diffForHumans() }}: &nbsp;
 
           </strong>
          
 
-          {{ $comment->body }} 
+          {{ $comment->body }}
 
          </li>
 
