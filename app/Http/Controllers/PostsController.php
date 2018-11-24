@@ -20,16 +20,10 @@ class PostsController extends Controller
                 ->get();
 
 
-        // Temporary
-        $archives = Post::selectRaw('year(created_at) year, monthname(created_at) month, count(*) published')
-            ->groupBy('year', 'month')
-            ->orderByRaw('min(created_at) DESC')
-            ->get()
-            ->toArray();
+
 
         return view('posts.index', [
-            'posts' => $posts,
-            'archives' => $archives
+            'posts' => $posts
         ]);
     }
 
