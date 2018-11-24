@@ -1,6 +1,6 @@
 <div class="blog-post">
 
-  <h3 class="blog-post-title">
+  <h4 class="blog-post-title">
 
     <a href="/posts/{{ $post->id }}">
 
@@ -8,7 +8,7 @@
 
     </a>
 
-  </h3>
+  </h4>
 
 
     <p class="blog-post-meta">{{ $post->user->name }} on {{ $post->created_at->toFormattedDateString()}} </p>
