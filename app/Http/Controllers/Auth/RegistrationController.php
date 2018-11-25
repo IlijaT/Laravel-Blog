@@ -14,10 +14,14 @@ class RegistrationController extends Controller
         $this->middleware('guest');
     }
 
+
+
     public function create()
     {
         return view('registrations.create');
     }
+
+
 
     public function store()
     {
@@ -25,7 +29,7 @@ class RegistrationController extends Controller
 
             'name' => 'required',
 
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users',
 
            'password' => 'required|confirmed'
         ]);
@@ -43,6 +47,8 @@ class RegistrationController extends Controller
         auth()->login($user);
 
         \Mail::to($user)->send(new WelcomeMail($user));
+
+        session()->flash('message', 'You successfully registered');
          
 
         return redirect('/');

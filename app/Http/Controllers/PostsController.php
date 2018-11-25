@@ -19,9 +19,6 @@ class PostsController extends Controller
                 ->filter(request(['month', 'year']))
                 ->get();
 
-
-
-
         return view('posts.index', [
             'posts' => $posts
         ]);
@@ -47,6 +44,8 @@ class PostsController extends Controller
                 'body' => request('body')
             ])
         );
+
+        session()->flash('message', 'Your post has now been published.');
 
         return redirect('/');
     }
