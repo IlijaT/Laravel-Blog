@@ -24,6 +24,14 @@
       </main> 
         @include('layouts.nav')
 
+        @if($flash = session('message'))
+          <div id="flash-message" class="alert alert-success" role="alert">
+            
+            <p>{{$flash}}</p>
+          
+          </div>
+        @endif
+
         <div class="row">
 
           @yield('content')
