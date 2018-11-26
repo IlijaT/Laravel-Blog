@@ -5,6 +5,20 @@
     
     <h1>{{ $post->title }}</h1>
 
+        @if(count($post->tags))
+
+          @foreach($post->tags as $tag)
+            <ul>
+              <li>
+                <a href="/posts/tags/{{ $tag->name }}">
+                  {{ $tag->name }}
+                </a>
+              </li>
+            </ul>
+          @endforeach
+
+        @endif
+
     <p>{{ $post->body }}</p>
 
     <hr>
